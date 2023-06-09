@@ -3,11 +3,6 @@ pipeline {
     // install golang 1.14 on Jenkins node
     agent any
 
-    parameters {
-        string(name: 'PROJECT_DIR', defaultValue: '/home/akib/Synopsys/sample-jenkins-pipeline',
-        description: 'Path to the project directory')
-    }
-
     stages {
         stage("unit-test") {
             steps {
@@ -22,7 +17,7 @@ pipeline {
         stage('SCA and Vulnerability Scan') {
             steps {
                 echo 'SCA AND VULNERABILITY SCAN STARTED'
-                sh "synopsys-detect --project-dir=${params.PROJECT_DIR} --format=html"
+                sh "synopsys-detect --format=html"
             }
         }
         stage("build") {
