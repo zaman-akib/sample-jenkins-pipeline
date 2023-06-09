@@ -3,7 +3,9 @@ pipeline {
     // install golang 1.14 on Jenkins node
     agent any
 
-    def PROJECT = 'sample-jenkins-pipeline'
+    parameters {
+        string(name: 'PROJECT', defaultValue: 'sample-jenkins-pipeline')
+    }
 
     stages {
         stage("unit-test") {
