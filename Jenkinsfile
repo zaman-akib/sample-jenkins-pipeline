@@ -17,7 +17,7 @@ pipeline {
         stage('SCA and Vulnerability Scan') {
             steps {
                 echo 'SCA AND VULNERABILITY SCAN STARTED'
-                sh 'synopsys-detect --format=html'
+                sh 'synopsys_detect --format=html'
             }
         }
         stage("build") {
