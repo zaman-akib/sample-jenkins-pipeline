@@ -17,7 +17,7 @@ pipeline {
         stage('SCA and Vulnerability Scan') {
             steps {
                 echo 'SCA AND VULNERABILITY SCAN STARTED'
-                synopsys_detect "--detect.docker.passthrough.service.timeout=\"120\" --detect.cleanup=false --detect.project.name=\"Test Project'\" --detect.project.tags=alpha,beta,gamma,delta,epsilon"
+                synopsys_detect "--detect.docker.passthrough.service.timeout=\"120\" --detect.cleanup=true --detect.project.name=\"Test Project\" --blackduck.offline.mode=true --logging.level.com.synopsys.integration=TRACE"
             }
         }
         stage("build") {
