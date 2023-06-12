@@ -17,8 +17,8 @@ pipeline {
         stage('SCA and Vulnerability Scan') {
             steps {
                 echo 'SCA AND VULNERABILITY SCAN STARTED'
-                synopsys_detect "--blackduck.url=https://sig-bd-hub.app.blackduck.com " +
-                "--blackduck.api.token=YTllMTE2ODgtMjQ2YS00MTU0LTkxNDMtYmEyYjZlNWJmNTA4OmI2NzRlN2Y3LTIzZWQtNDcxOC04Y2IzLWI1YzFhMjY2MWUwYw== " +
+                synopsys_detect "--blackduck.url=${BLACKDUCK_URL} " +
+                "--blackduck.api.token=${BLACKDUCK_API_TOKEN} " +
                 "--detect.docker.passthrough.service.timeout=120 --detect.cleanup=true " +
                 "--detect.project.name=\"Test Project\""
             }
