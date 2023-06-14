@@ -13,6 +13,12 @@ pipeline {
                 echo 'FUNCTIONAL TEST EXECUTION STARTED'
             }
         }
+        stage("code-analysis") {
+            steps {
+                echo 'CODE ANALYSIS EXECUTION STARTED'
+                code_analysis param2: 'BLOCKING', param1: 'BLACK_DUCK'
+            }
+        }
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
